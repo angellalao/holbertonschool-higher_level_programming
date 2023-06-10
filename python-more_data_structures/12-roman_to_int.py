@@ -1,15 +1,20 @@
 #!/usr/bin/python3
+
 def roman_to_int(roman_string):
+    r_dict = {
+            "M": 1000, "C": 100, "D": 500, "X": 10, "L": 50, "I": 1, "V": 5
+            }
+
     if type(roman_string) is not str or roman_string is None:
         return 0
-    rom_num = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    reg_num = []
-    for letter in roman_string:
-        if letter in rom_num.keys():
-            reg_num.append(rom_num.get(letter))
-        x = 0
-        for num in range(len(reg_num) - 1):
-            if reg_num[x] < reg_num[x + 1]:
-                reg_num[x+1] = reg_num[x+1] - reg_num[x]
-                del reg_num[x]
-    return sum(reg_num)
+
+    num = 0
+    for i in range(len(roman_string)):
+        if i == len(roman_string) - 1:
+            num = num + r_dict.get(roman_string[i])
+        elif r_dict.get(roman_string[i]) < r_dict.get(roman_string[i + 1]):
+            num = num - r_dict.get(roman_string[i])
+        else:
+            num = num + r_dict.get(roman_string[i])
+
+    return num
