@@ -42,3 +42,15 @@ Now use it:
     Add an int and a float:
     >>> add_integer(5, 10.3)
     15
+
+    Add float overflow:
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+    Add float NaN:
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
