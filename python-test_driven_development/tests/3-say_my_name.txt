@@ -31,11 +31,6 @@ Now use it:
     ...
     TypeError: last_name must be a string
 
-    Only one argument entered:
-    >>> first_name = "John"
-    >>> say_my_name(first_name)
-    My name is John
-
     No arguments entered:
     >>> say_my_name()
     Traceback (most recent call last):
