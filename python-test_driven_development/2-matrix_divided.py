@@ -39,7 +39,7 @@ def matrix_divided(matrix, div):
     if type(div) != int and type(div) != float:
         raise TypeError("div must be a number")
     if div == 0:
-        raise ZeroDivisionError("division by zero ")
+        raise ZeroDivisionError("division by zero")
 
     for row in matrix:
         new_row = []
