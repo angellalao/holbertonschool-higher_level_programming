@@ -53,7 +53,7 @@ Now use it:
     Traceback (most recent call last):
     ...
     ZeroDivisionError: division by zero
- 
+
     One argument is missing:
     >>> matrix = [[1, 2, 3], [4, 5, 6]]
     >>> matrix_divided(matrix)
@@ -66,3 +66,9 @@ Now use it:
     Traceback (most recent call last):
     ...
     TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+    Div = float('inf'):
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> div = float('inf')
+    >>> matrix_divided(matrix, div)
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
