@@ -66,7 +66,7 @@ class Square:
         """
         Returns hidden position value
         """
-        return self.__property
+        return self.__position
 
     @position.setter
     def position(self, value):
