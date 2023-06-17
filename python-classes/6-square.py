@@ -74,9 +74,10 @@ class Square:
         Set new position
         """
         error_msg= "position must be a tuple of 2 positive integers"
-        if position(0) or position(1) < 0:
+        if type(value) != tuple:
             raise TypeError(error_msg)
-
+        if len(value) != 2:
+            raise TypeError(error_msg)
         for num in value:
             if type(num) != int:
                 raise TypeError(error_msg)
