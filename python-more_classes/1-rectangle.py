@@ -14,7 +14,7 @@ class Rectangle:
         __height (int): The height of the rectangle.
 
     Methods:
-        __init__(self, width=0, height=0): Initializes a new rectangle instance.
+        __init__(self, width=0, height=0): Initializes new rectangle instance.
         width(self): Getter method for retrieving the width of the rectangle.
         width(self, value): Method for setting the width of the rectangle.
         height(self): Getter method for retrieving the height of the rectangle.
