@@ -30,5 +30,5 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         """returns description of rectangle"""
-        rectangle = f"[Rectangle] {self.__width}/{self.__height}"
+        rectangle = f"[{type(self).__name__}] {self.__width}/{self.__height}"
         return rectangle
