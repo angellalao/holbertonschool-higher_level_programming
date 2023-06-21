@@ -21,8 +21,8 @@ class Square(Rectangle):
         Initializes private attribute __size with given size and validates it
         using the superclass's integer_validator method
         """
-        super().__init__(size, size)
         self.__size = size
+        super().__init__(size, size)
         super().integer_validator("size", self.__size)
 
     def area(self):
