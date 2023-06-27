@@ -48,3 +48,8 @@ class Rectangle(Base):
     def y(self):
         """retrieve y"""
         self.y = value
+
+    @y.setter
+    def y(self, value):
+        """set y"""
+        self.y - value
