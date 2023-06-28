@@ -75,8 +75,13 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
-        """print rectangle using # """
+        """print rectangle using #, with x,y as co-ordinates of where
+           to print"""
+        for blank_line in range(self.y):
+            print("")
         for i in range(self.height):
+            for blank_space in range(self.x):
+                print(" ", end="")
             for j in range(self.width):
                 print("#", end="")
             print("")
