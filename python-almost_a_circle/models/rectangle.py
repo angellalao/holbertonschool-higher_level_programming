@@ -36,6 +36,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        """set height"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -124,3 +125,11 @@ class Rectangle(Base):
                 self.y = kwargs["y"]
             except KeyError:
                 pass
+
+    def to_dictionary(self):
+        """return dictionary representation of instance attributes"""
+        keys = ["id", "width", "height", "x", "y"]
+        new_dict = {}
+        for i in keys:
+            new_dict[i] = getattr(self, i)
+        return new_dict
