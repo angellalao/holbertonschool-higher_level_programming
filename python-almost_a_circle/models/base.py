@@ -47,4 +47,5 @@ class Base:
         """returns the JSON string represenation of a list of dictionaries"""
         if list_dictionaries is None or list_dictionaries == []:
             return f"[]"
-        return json.dumps(list_dictionaries)
+        else:
+            return json.dumps(list_dictionaries)
