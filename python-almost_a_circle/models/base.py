@@ -6,6 +6,7 @@ The `Base` class serves as a parent class for other classes in the codebase.
 It includes a class attribute called `__nb_objects`, which keeps track of the
 number of objects created from derived classes.
 """
+import json
 
 
 class Base:
@@ -40,3 +41,11 @@ class Base:
         else:
             type(self).__nb_objects = type(self).__nb_objects + 1
             self.id = self.__nb_objects
+
+    @staticmethod
+    """returns the JSON string represenation of a list of dictionaries"""
+    def to_json_string(list_dictionaries):
+        if list_dictionaries:
+            return json.dumps(list_dictionaries)
+        else:
+            return "[]"
