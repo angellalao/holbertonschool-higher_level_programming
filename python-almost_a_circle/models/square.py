@@ -41,3 +41,11 @@ class Square(Rectangle):
                 setattr(self, j, kwargs[j])
             except KeyError:
                 pass
+
+    def to_dictionary(self):
+        """returns dictionary representation of square attributes"""
+        keys = ["x", "y", "id", "size"]
+        new_dict = {}
+        for key in keys:
+            new_dict[key] = getattr(self, key)
+        return new_dict
