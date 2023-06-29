@@ -16,3 +16,14 @@ class Square(Rectangle):
         class_name = type(self).__name__
         return f"[{class_name}] ({self.id}) {self.x}/{self.y}\
  - {self.width}"
+
+    @property
+    def size(self):
+        """retrieve size """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """set width and height """
+        self.width = value
+        self.height = value
