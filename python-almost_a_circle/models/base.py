@@ -63,3 +63,11 @@ class Base:
         list_str = cls.to_json_string(list_dict)
         with open(cls_name, "w", encoding="utf-8") as f:
             f.write(list_str)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """convert json string to list. returnslist"""
+        if json_string is None or json_string == "":
+            return []
+        else:
+            return json.loads(json_string)
