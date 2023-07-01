@@ -66,7 +66,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """convert json string to list. returnslist"""
+        """convert json string to list. returns list"""
         if json_string is None or json_string == "":
             return []
         else:
@@ -81,3 +81,18 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances, given the class"""
+        file_name = f"{cls.__name__}.json"
+        try:
+            with open(file_name, "r") as f:
+                json_string = f.read()
+        except Exception as e:
+            return []
+        list_instance = []
+        instance_dict_list = cls.from_json_string(json_string)
+        for i in instance_dict_list:
+            list_instance.append(cls.create(**i))
+        return list_instance
