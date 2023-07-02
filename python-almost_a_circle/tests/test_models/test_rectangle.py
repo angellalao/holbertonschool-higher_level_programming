@@ -7,9 +7,9 @@ import sys
 import os
 
 class TestRectangle(unittest.TestCase):
-    """ """
+    """tests for rectangle class """
     def test_rectangle_args(self):
-        """ """
+        """test for various number of arguments """
         r1 = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(r1.width, 1)
         self.assertEqual(r1.height, 2)
@@ -31,7 +31,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.x, 0)
 
     def test_rectangle_str_args(self):
-        """ """
+        """test for string arguments """
         with self.assertRaises(TypeError):
             r1 = Rectangle("1", 2)
         with self.assertRaises(TypeError):
@@ -42,7 +42,7 @@ class TestRectangle(unittest.TestCase):
             r4 = Rectangle(1, 2, 3, "4")
 
     def test_rectangle_negative_args(self):
-        """ """
+        """test for negative integer arguments"""
         with self.assertRaises(ValueError):
             r1 = Rectangle(-1, 2)
         with self.assertRaises(ValueError):
