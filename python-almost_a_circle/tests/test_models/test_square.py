@@ -1,9 +1,6 @@
 """unittest for square module"""
 import unittest
 from models.square import Square
-import io
-import os
-import sys
 
 
 class TestSquare(unittest.TestCase):
