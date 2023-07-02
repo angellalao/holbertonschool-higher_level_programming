@@ -25,3 +25,25 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.width, 1)
         self.assertEqual(r4.height, 2)
         self.assertEqual(r4.x, 0)
+
+    def test_rectangle_str_args(self):
+        """ """
+        with self.assertRaises(TypeError):
+            r1 = Rectangle("1", 2)
+        with self.assertRaises(TypeError):
+            r2 = Rectangle(1, "2")
+        with self.assertRaises(TypeError):
+            r3 = Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
+            r4 = Rectangle(1, 2, 3, "4")
+
+    def test_rectangle_negative_args(self):
+        """ """
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(-1, 2)
+        with self.assertRaises(ValueError):
+            r2 = Rectangle(1, -2)
+        with self.assertRaises(ValueError):
+            r3 = Rectangle(1, 2, -3)
+        with self.assertRaises(ValueError):
+            r4 = Rectangle(1, 2, 3, -4)
