@@ -1,6 +1,8 @@
 """unittest for rectangle module"""
 import unittest
 from models.rectangle import Rectangle
+import io
+import sys
 
 class TestRectangle(unittest.TestCase):
     """ """
@@ -60,7 +62,7 @@ class TestRectangle(unittest.TestCase):
     def test_str(self):
         """prints string when str() or print() invoked"""
         r1 = Rectangle(1, 2, 3, 4, 5)
-        self.assetEqual(str(r1), "[Rectangle] (5) 3/4 - 1/2")
+        self.assertEqual(str(r1), "[Rectangle] (5) 3/4 - 1/2")
 
     def test_display(self):
         """prints representation of rectangle"""
