@@ -5,10 +5,11 @@ import io
 import os
 import sys
 
+
 class TestSquare(unittest.TestCase):
     """test for variable arguments used with Square class """
     def test_square_args(self):
-        """ """
+        """test for creating square instance with variable arguments"""
         s1 = Square(1)
         self.assertEqual(s1.size, 1)
         self.assertEqual(s1.x, 0)
@@ -92,7 +93,7 @@ class TestSquare(unittest.TestCase):
 
     def test_square_create(self):
         """create new instance of square with args as parameters"""
-        s1 = Square.create(**{ 'id': 89 })
+        s1 = Square.create(**{'id': 89})
         self.assertEqual(s1.id, 89)
 
     def test_square_save_to_file_none(self):
