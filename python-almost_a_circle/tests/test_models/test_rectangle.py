@@ -3,6 +3,7 @@ import unittest
 from models.rectangle import Rectangle
 import io
 import sys
+import os
 
 class TestRectangle(unittest.TestCase):
     """ """
@@ -65,6 +66,15 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(r1), "[Rectangle] (5) 3/4 - 1/2")
 
     def test_display(self):
+        """ prints representation of rectangle"""
+        out = io.StringIO()
+        sys.stdout = out
+        r1 = Rectangle(1, 1)
+        r1.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(out.getvalue(), "#\n")
+
+    def test_display_pos(self):
         """prints representation of rectangle"""
         out = io.StringIO()
         sys.stdout = out
@@ -72,3 +82,45 @@ class TestRectangle(unittest.TestCase):
         r1.display()
         sys.stdout = sys.__stdout__
         self.assertEqual(out.getvalue(), "\n #\n")
+
+    def test_rectangle_todictionary(self):
+        """the rectangle is converted to a dictionary"""
+        r1 = Rectangle(10, 2, 1, 9, 22)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {'x': 1, 'y': 9, 'id': 22, 'height': 2, 'width': 10})
+
+    def test_rectangle_update(self):
+        """update changes each argument for rectangle"""
+        r1 = Rectangle(8, 8, 8, 8, 8)
+        r1.update(89)
+        self.assertEqual(r1.id, 89)
+
+    def test_rectangle_create(self):
+        """create new instance of rectangle with args as parameters"""
+        r1 = Rectangle.create(**{ 'id': 89 })
+        self.assertEqual(r1.id, 89)
+
+    def test_rectangle_save_to_file_none(self):
+        """rectangle save to file, read file contents are correct"""
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", 'r') as f2:
+            r2 = f2.read()
+        self.assertEqual(r2, '[]')
+        os.remove("Rectangle.json")
+
+    def test_rectangle_save_to_file_empty(self):
+        """rectangle save to file, read file contents are correct"""
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", 'r') as f:
+            r1 = f.read()
+        self.assertEqual(r1, '[]')
+        os.remove("Rectangle.json")
+
+    def test_rectangle_load(self):
+        """testing the load file method, expected rect back"""
+        r1 = Rectangle(10, 7, 2, 8, 88)
+        list_rectangles_input = [r1]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(list_rectangles_output[0]), '[Rectangle] (88) 2/8 - 10/7')
+        os.remove("Rectangle.json")
