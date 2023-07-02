@@ -47,3 +47,26 @@ class TestRectangle(unittest.TestCase):
             r3 = Rectangle(1, 2, -3)
         with self.assertRaises(ValueError):
             r4 = Rectangle(1, 2, 3, -4)
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(0, 2)
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(1, 0)
+
+    def test_rectangle_area(self):
+        """calculates area of rectangle"""
+        r1 = Rectangle(1, 2)
+        self.assertEqual(r1.area(), 2)
+
+    def test_str(self):
+        """prints string when str() or print() invoked"""
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        self.assetEqual(str(r1), "[Rectangle] (5) 3/4 - 1/2")
+
+    def test_display(self):
+        """prints representation of rectangle"""
+        out = io.StringIO()
+        sys.stdout = out
+        r1 = Rectangle(1, 1, 1, 1)
+        r1.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(out.getvalue(), "\n #\n")
