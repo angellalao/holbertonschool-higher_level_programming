@@ -1,9 +1,9 @@
-"""unittest for square module"""
 import unittest
 from models.square import Square
 
 class TestSquare(unittest.TestCase):
     """test for variable arguments used with Square class """
+
     def test_square_args(self):
         """test for creating square instance with variable arguments"""
         s1 = Square(1)
