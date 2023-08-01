@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""a python file that contains class definition of a State and instance Base """
+"""a python file that contains class definition of a State and instance Base"""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
+
 
 class State(Base):
     """create class State that inherits from Base"""
